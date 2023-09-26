@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { BadgeCheck, XOctagon } from "lucide-react";
+import ProjectList from "./project-list";
 
-import blogApresImage from "@/assets/blogexp.png";
-import devNationApresImage from "@/assets/devnationexp.png";
-import restaurantApresImage from "@/assets/restexp.png";
+import githubLogo from "@/assets/github.svg";
+import inLogo from "@/assets/linkedin.svg";
+import igLogo from "@/assets/instagram.svg";
 
 interface HeroProps {
   img: JSX.Element;
@@ -33,93 +34,48 @@ export default function Home() {
     },
   ];
 
-  const bestProjects = [
+  const contactLinks = [
     {
       img: (
         <Image
-          src={blogApresImage}
-          width={230}
-          height={250}
-          alt="NextBlog imagem de apresentação"
+          src={githubLogo}
+          width={40}
+          height={40}
+          alt="Github Logo"
           className="object-contain"
         />
       ),
-      title: "NextBlog",
-      keyWords: [
-        {
-          id: 1,
-          title: "Next13",
-        },
-        {
-          id: 2,
-          title: "Javascript",
-        },
-        {
-          id: 3,
-          title: "Tailwind",
-        },
-      ],
-      description:
-        "Next Blog é uma aplicação fullstack onde podemos criar uma conta e se conectar, ver a listagem dos blogs, procurar e salvar os que nos interessarem. Como administrador você pode criar, editar e deletar os blogs.",
-      link: "https://github.com/marcusvinicius0/Next-Blog",
+      name: "Github",
+      autor: "marcusvinicius0",
+      link: "https://github.com/marcusvinicius0",
     },
     {
       img: (
         <Image
-          src={devNationApresImage}
-          width={230}
-          height={250}
-          alt="Devnation imagem de apresentação"
+          src={inLogo}
+          width={40}
+          height={40}
+          alt="Linkedin Logo"
           className="object-contain"
         />
       ),
-      title: "Devnation",
-      keyWords: [
-        {
-          id: 1,
-          title: "ReactJS",
-        },
-        {
-          id: 2,
-          title: "Javascript",
-        },
-        {
-          id: 3,
-          title: "Firebase",
-        },
-      ],
-      description:
-        "DevNation é uma rede social voltada para desenvolvedores, sendo possível: criar uma conta, editar o perfil, criar publicações, encontrar repositórios do github através de sua API, salvar publicações, entre várias outras funcionalidades. Foi projetado e desenvolvido através de pair programming.",
-      link: "https://github.com/marcusvinicius0/devNation",
+      name: "Linkedin",
+      autor: "marcusvinicius",
+      link: "https://www.linkedin.com/in/marcusviniciusbeghelisantos/",
     },
     {
       img: (
         <Image
-          src={restaurantApresImage}
-          width={230}
-          height={250}
-          alt="NextBlog imagem de apresentação"
+          src={igLogo}
+          width={40}
+          height={40}
+          alt="Instagram Logo"
           className="object-contain"
         />
       ),
-      title: "Sistema para restaurantes",
-      keyWords: [
-        {
-          id: 1,
-          title: "Next12",
-        },
-        {
-          id: 2,
-          title: "Typescript",
-        },
-        {
-          id: 3,
-          title: "Node",
-        },
-      ],
-      description:
-        "Sistema de restaurantes é uma aplicação fullstack onde ajudamos estabelecimentos de comida, permitindo-os criar, controlar monitorar seus pedidos. O garçom chega com o aplicativo onde abre uma mesa e anota todos os pedidos do cliente. Após a confirmação, o pedido é enviado para a cozinha, onde podem acompanhar e editar através de um dashboard. Além disso, na versão web o administrador pode criar categorias e produtos para essas categorias.",
-      link: "https://github.com/marcusvinicius0/restaurantsystem",
+      name: "Instagram",
+      autor: "marcusbegh",
+      link: "https://www.instagram.com/marcusbegheli/",
     },
   ];
 
@@ -160,44 +116,30 @@ export default function Home() {
         );
       })}
 
-      <article className="flex flex-col justify-center items-center">
-        <h2 className="font-semibold text-lg">✨ Melhores projetos</h2>
+      <ProjectList />
 
-        {bestProjects.map((project) => {
+      <section className="w-full space-y-6 flex flex-col justify-center items-center">
+        <h2>🔗 Links de contato</h2>
+        {contactLinks.map((link) => {
           return (
-            <div
-              key={project.title}
-              className="flex flex-col justify-center items-center mt-6 border w-11/12 space-y-4"
+            <a
+              key={link.name}
+              href={link.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-200/10 w-8/12 rounded-lg p-1.5 shadow-sm hover:bg-gray-200/5"
             >
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className=""
-              >
-                {project.img}
-              </a>
-              <main className="p-2 space-y-4">
-                <h3 className="font-bold">{project.title}</h3>
-                <div className="flex gap-2">
-                  {project.keyWords.map((item) => {
-                    return (
-                      <span
-                        key={item.title}
-                        className="bg-blue-500 p-1.5 flex text-white rounded-md text-xs"
-                      >
-                        {item.title}
-                      </span>
-                    );
-                  })}
-                </div>
-                <hr />
-                <p className="text-sm">{project.description}</p>
-              </main>
-            </div>
+              <div key={link.name}>
+                <span className="flex items-center space-x-2">
+                  <span>{link.img}</span>
+                  <h4 className="font-semibold">{link.name}</h4>
+                </span>
+                <small>{link.autor}</small>
+              </div>
+            </a>
           );
         })}
-      </article>
+      </section>
     </main>
   );
 }
