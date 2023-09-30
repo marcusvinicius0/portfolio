@@ -6,7 +6,7 @@
 
 >  A modern and responsive Portfolio made with ❤️!
 
-Check the app: <a href="https://nextblog-rho-sooty.vercel.app/" target="_blank" rel="noopener noreferrer">https://nextblog-rho-sooty.vercel.app/</a><br>
+Check the app: <a href="https://portfolio-mlrjd6hfm-marcusvinicius0.vercel.app/" target="_blank" rel="noopener noreferrer">https://portfolio-mlrjd6hfm-marcusvinicius0.vercel.app/</a><br>
 
 ## Explanation
 
