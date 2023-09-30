@@ -8,6 +8,7 @@ import ProjectCard from "./project-card";
 
 // @ts-ignore
 import resume from "@/assets/marcusbeghelicv.pdf";
+import IdeasCard from "./ideas-card";
 
 interface AboutProps {
   intro: string;
@@ -37,7 +38,8 @@ export default function Home() {
       name: "Marcus Vinícius Begheli",
       role: "Desenvolvedor Frontend",
       about: {
-        intro: "Olá, meu nome é Marcus Vinícius, já participei de vários projetos como desenvolvedor fullstack, com uma abrangência maior de conhecimento no lado cliente. Já trabalhei em projetos de nichos variados como restaurantes, indicação de leads, rede social, blogs, metaverso..",
+        intro:
+          "Olá, meu nome é Marcus Vinícius, já participei de vários projetos como desenvolvedor fullstack, com uma abrangência maior de conhecimento no lado cliente. Já trabalhei em projetos de nichos variados como restaurantes, indicação de leads, rede social, blogs, metaverso..",
         main: "💡 No meu tempo livre gosto de estar me atualizando com o mercado, estudando coisas novas, trabalhando em projetos pessoais, tendo novas ideias...",
         final: "Quer saber mais sobre minha experiência profissional?",
       },
@@ -138,12 +140,15 @@ export default function Home() {
           })}
         </section>
 
-        <section>
+        <section className="space-y-10">
           <ProjectCard />
+          <article className="xl:flex xl:justify-start">
+            <IdeasCard />
+          </article>
         </section>
       </main>
 
-      <footer className="mt-16" id="links">
+      <footer className="mt-32" id="links">
         <section className="flex flex-col justify-center items-center space-y-4">
           <h2 className="font-semibold">🔗 Links de contato</h2>
           <div className="flex flex-col space-y-6 md:flex-row md:space-y-0 md:space-x-6">
