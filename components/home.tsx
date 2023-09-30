@@ -1,16 +1,24 @@
 import Image from "next/image";
 import { BadgeCheck, XOctagon } from "lucide-react";
-import ProjectList from "./project-list";
 
 import githubLogo from "@/assets/github.svg";
 import inLogo from "@/assets/linkedin.svg";
 import igLogo from "@/assets/instagram.svg";
+import ProjectCard from "./project-card";
 
+// @ts-ignore
+import resume from "@/assets/marcusbeghelicv.pdf";
+
+interface AboutProps {
+  intro: string;
+  main: string;
+  final?: string;
+}
 interface HeroProps {
   img: JSX.Element;
   name: string;
   role: string;
-  about: string;
+  about: AboutProps;
   availableForWork: boolean;
 }
 
@@ -28,9 +36,12 @@ export default function Home() {
       ),
       name: "Marcus Vinícius Begheli",
       role: "Desenvolvedor Frontend",
-      about:
-        "Apaixonado por tecnologia, resolução de problemas e entusiasta da arquitetura de software. Proficiente em projetar e desenvolver soluções e layouts para desenvolvimento web. Experiência em desenvolvimento de sistemas completos de diferentes nichos, como blogs, rede social, sistema para restaurantes e indicação de leads.",
-      availableForWork: true,
+      about: {
+        intro: "Olá, meu nome é Marcus Vinícius, já participei de vários projetos como desenvolvedor fullstack, com uma abrangência maior de conhecimento no lado cliente. Já trabalhei em projetos de nichos variados como restaurantes, indicação de leads, rede social, blogs, metaverso..",
+        main: "💡 No meu tempo livre gosto de estar me atualizando com o mercado, estudando coisas novas, trabalhando em projetos pessoais, tendo novas ideias...",
+        final: "Quer saber mais sobre minha experiência profissional?",
+      },
+      availableForWork: false,
     },
   ];
 
@@ -80,66 +91,82 @@ export default function Home() {
   ];
 
   return (
-    <main className="w-full mt-16 space-y-20">
-      {heroSection.map((hero) => {
-        return (
-          <section
-            key={hero.name}
-            className="flex flex-col justify-center items-center p-3 space-y-6"
-          >
-            <div className="relative">
-              {hero.img}
-              <span className="absolute bottom-0">
-                {hero.availableForWork ? (
-                  <span title="Available for work">
-                    <BadgeCheck
-                      size={20}
-                      className="text-green-600 bg-green-300 rounded-full"
-                    />
-                  </span>
-                ) : (
-                  <span title="Unavailable for work">
-                    <XOctagon
-                      size={20}
-                      className="text-red-600 bg-red-300 rounded-full"
-                    />
-                  </span>
-                )}
-              </span>
-            </div>
-            <h1 className="font-semibold tracking-[4px]">{hero.name}</h1>
-            <h5 className="font-medium tracking-[2px]">{hero.role}</h5>
-            <p className="text-sm text-center leading-6 text-gray-600">
-              {hero.about}
-            </p>
-          </section>
-        );
-      })}
-
-      <ProjectList />
-
-      <section className="w-full space-y-6 flex flex-col justify-center items-center">
-        <h2>🔗 Links de contato</h2>
-        {contactLinks.map((link) => {
-          return (
-            <a
-              key={link.name}
-              href={link.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-200/10 w-8/12 rounded-lg p-1.5 shadow-sm hover:bg-gray-200/5"
-            >
-              <div key={link.name}>
-                <span className="flex items-center space-x-2">
-                  <span>{link.img}</span>
-                  <h4 className="font-semibold">{link.name}</h4>
-                </span>
-                <small>{link.autor}</small>
+    <>
+      <main className="w-full mt-16 space-y-20 xl:space-y-0 xl:flex xl:flex-row xl:justify-center xl:gap-10">
+        <section className="xl:sticky xl:top-20 xl:h-[250px]">
+          {heroSection.map((hero) => {
+            return (
+              <div
+                key={hero.name}
+                className="flex flex-col justify-center items-center p-3 xl:p-0"
+              >
+                <div className="flex flex-col justify-center items-center xl:justify-start xl:items-start space-y-6 max-w-[450px]">
+                  <div className="relative">
+                    {hero.img}
+                    <span className="absolute bottom-0">
+                      {hero.availableForWork ? (
+                        <span title="Disponível para projetos">
+                          <BadgeCheck
+                            size={20}
+                            className="text-green-600 bg-green-300 rounded-full"
+                          />
+                        </span>
+                      ) : (
+                        <span title="Indisponível para projetos">
+                          <XOctagon
+                            size={20}
+                            className="text-red-600 bg-red-300 rounded-full"
+                          />
+                        </span>
+                      )}
+                    </span>
+                  </div>
+                  <h1 className="font-semibold text-lg">{hero.name}</h1>
+                  <h5 className="font-medium tracking-[1px] bg-[#D6E4FF]/10 p-1.5 rounded-lg text-[#5A85FF] uppercase text-sm">
+                    {hero.role}
+                  </h5>
+                  <p className="text-sm text-center xl:text-left leading-6 text-gray-600">
+                    {hero.about.intro}
+                  </p>
+                  <p className="text-sm text-center xl:text-left leading-6 text-gray-600">
+                    {hero.about.main}
+                  </p>
+                  {/* <small>{hero.about.final}<a href={resume} download>Veja meu currículo.</a></small> */}
+                </div>
               </div>
-            </a>
-          );
-        })}
-      </section>
-    </main>
+            );
+          })}
+        </section>
+
+        <section>
+          <ProjectCard />
+        </section>
+      </main>
+
+      <footer className="mt-16" id="links">
+        <section className="flex flex-col justify-center items-center space-y-4">
+          <h2 className="font-semibold">🔗 Links de contato</h2>
+          <div className="flex flex-col space-y-6 md:flex-row md:space-y-0 md:space-x-6">
+            {contactLinks.map((link) => {
+              return (
+                <a
+                  key={link.name}
+                  href={link.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80"
+                >
+                  <div className="border border-gray-100/90 w-44 rounded-lg p-1 flex flex-col items-center">
+                    <span>{link.img}</span>
+                    <h4 className="font-semibold text-sm">{link.name}</h4>
+                    <small>{link.autor}</small>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </section>
+      </footer>
+    </>
   );
 }
