@@ -6,8 +6,6 @@ import inLogo from "@/assets/linkedin.svg";
 import igLogo from "@/assets/instagram.svg";
 import ProjectCard from "./project-card";
 
-// @ts-ignore
-import resume from "@/assets/marcusbeghelicv.pdf";
 import IdeasCard from "./ideas-card";
 
 interface AboutProps {
