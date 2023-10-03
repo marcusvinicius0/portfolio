@@ -3,9 +3,9 @@ export default function Footer() {
 
   return (
     <>
-      <hr className="border-gray-300/90 mt-6" />
+      <hr className="border-gray-300/90 dark:border-white/50 mt-20" />
       <footer className="w-full h-fit p-2 space-y-2 flex flex-col justify-center items-center">
-        <p className="font-normal text-sm tracking-wide text-gray-500 text-center w-fit">
+        <p className="font-normal text-sm tracking-wide text-gray-500 dark:text-white text-center w-fit">
           Feito com 💖 por{" "}
           <a
             href="https://github.com/marcusvinicius0"
@@ -16,7 +16,7 @@ export default function Footer() {
             Marcus Vinícius
           </a>
         </p>
-        <p className="font-normal text-sm tracking-wide text-gray-500 text-center w-fit">
+        <p className="font-normal text-sm tracking-wide text-gray-500 dark:text-white text-center w-fit">
           © {currentYear}
         </p>
       </footer>

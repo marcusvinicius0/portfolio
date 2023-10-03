@@ -91,7 +91,7 @@ export default function ProjectCard() {
         return (
           <div
             key={project.title}
-            className="flex flex-col gap-4 p-1.5 max-w-[28.5rem] border border-gray-200 rounded-lg"
+            className="flex flex-col gap-4 p-1.5 max-w-[28.5rem] border border-gray-200 dark:border-none rounded-lg"
           >
             <span>{project.img}</span>
             <h3 className="font-semibold text-lg">{project.title}</h3>

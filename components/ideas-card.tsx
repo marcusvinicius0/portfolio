@@ -35,11 +35,11 @@ export default function IdeasCard() {
             >
               <div
                 key={idea.title}
-                className="border border-gray-100/90 w-44 rounded-lg p-1 flex flex-col items-center"
+                className="border border-gray-100/90 dark:border-none dark:bg-white/90 w-44 rounded-lg p-1 flex flex-col items-center space-y-2"
               >
                 <span>{idea.img}</span>
-                <h4 className="font-semibold text-sm">{idea.title}</h4>
-                <time>{idea.date}</time>
+                <h4 className="font-semibold text-sm dark:text-black">{idea.title}</h4>
+                <time className="dark:text-black">{idea.date}</time>
               </div>
             </a>
           );

@@ -1,13 +1,16 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import ThemeSwitcher from "./themeSwitcher";
 
 type Props = {};
 
 export default function Header({}: Props) {
+
   return (
-    <header className="w-full h-fit p-4 shadow-sm sticky top-0 bg-white z-50">
+    <header className="w-full h-fit p-4 shadow-sm sticky top-0 z-50 bg-white dark:bg-[#121212]">
       <nav>
-        <ul className="flex justify-center gap-8 text-gray-900 text-sm font-semibold">
+        <ul className="flex justify-center gap-8 text-sm font-semibold dark:text-white">
           <li className="cursor-pointer">
             <Link href="#inicio">Início</Link>
           </li>
@@ -19,6 +22,8 @@ export default function Header({}: Props) {
           </li>
         </ul>
       </nav>
+
+      <ThemeSwitcher />
     </header>
   );
 }
