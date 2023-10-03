@@ -95,7 +95,7 @@ export default function Home() {
   return (
     <>
       <main className="w-full mt-16 space-y-20 xl:space-y-0 xl:flex xl:flex-row xl:justify-center xl:gap-10">
-        <section className="xl:sticky xl:top-20 xl:h-[250px]">
+        <section className="xl:sticky xl:top-28 xl:h-[250px]">
           {heroSection.map((hero) => {
             return (
               <div
@@ -127,13 +127,12 @@ export default function Home() {
                   <h5 className="font-medium tracking-[1px] bg-[#D6E4FF]/10 p-1.5 rounded-lg text-[#5A85FF] uppercase text-sm">
                     {hero.role}
                   </h5>
-                  <p className="text-sm text-center xl:text-left leading-6 text-gray-600">
+                  <p className="text-sm text-center xl:text-left leading-6">
                     {hero.about.intro}
                   </p>
-                  <p className="text-sm text-center xl:text-left leading-6 text-gray-600">
+                  <p className="text-sm text-center xl:text-left leading-6">
                     {hero.about.main}
                   </p>
-                  {/* <small>{hero.about.final}<a href={resume} download>Veja meu currículo.</a></small> */}
                 </div>
               </div>
             );
@@ -161,10 +160,10 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:opacity-80"
                 >
-                  <div className="border border-gray-100/90 w-44 rounded-lg p-1 flex flex-col items-center">
+                  <div className="border border-gray-100/90 dark:border-none dark:bg-white/90 w-44 rounded-lg p-1 flex flex-col items-center space-y-1">
                     <span>{link.img}</span>
-                    <h4 className="font-semibold text-sm">{link.name}</h4>
-                    <small>{link.autor}</small>
+                    <h4 className="font-semibold text-sm dark:text-black">{link.name}</h4>
+                    <small className="dark:text-black">{link.autor}</small>
                   </div>
                 </a>
               );
