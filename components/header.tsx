@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import ThemeSwitcher from "./themeSwitcher";
 
 export default function Header() {
 
@@ -20,8 +19,6 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-
-      <ThemeSwitcher />
     </header>
   );
 }
