@@ -19,10 +19,10 @@ export default function ThemeSwitcher() {
   return (
     <div className="flex space-x-5">
       <button onClick={() => setTheme("light")} title={theme === "light" ? "" : "Selecionar modo claro"}>
-        <SunIcon className={`${theme === "light" ? 'w-6 h-6 text-gray-600' : 'w-6 h-6'}`} />
+        <SunIcon className={`${theme === "light" ? 'w-5 h-5 text-gray-600' : 'w-5 h-5'}`} />
       </button>
       <button onClick={() => setTheme("dark")} title={theme !== "light" ? "" : "Selecionar modo escuro"}>
-        <MoonIcon className="w-6 h-6 dark:text-gray-600"/>
+        <MoonIcon className="w-5 h-5 dark:text-gray-600"/>
       </button>
     </div>
   );

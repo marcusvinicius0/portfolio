@@ -7,6 +7,9 @@ import nextBlogApresGIF from "@/assets/nextblogapresentation.gif";
 
 import { PlusCircle } from "lucide-react";
 
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 export default function ProjectCard() {
   const bestProjects = [
     {
@@ -93,7 +96,7 @@ export default function ProjectCard() {
             key={project.title}
             className="flex flex-col gap-4 p-1.5 max-w-[28.5rem] border border-gray-200 dark:border-none rounded-lg"
           >
-            <span>{project.img}</span>
+            <span className="h-52">{!project.img ? <Skeleton className="h-full" /> : project.img}</span>
             <h3 className="font-semibold text-lg">{project.title}</h3>
             <span className="flex gap-2 items-center">
               {project.keyWords.map((keyword: any) => {

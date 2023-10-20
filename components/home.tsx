@@ -160,7 +160,9 @@ export default function Home() {
                 >
                   <div className="border border-gray-100/90 dark:border-none dark:bg-white/90 w-44 rounded-lg p-1 flex flex-col items-center space-y-1">
                     <span>{link.img}</span>
-                    <h4 className="font-semibold text-sm dark:text-black">{link.name}</h4>
+                    <h4 className="font-semibold text-sm dark:text-black">
+                      {link.name}
+                    </h4>
                     <small className="dark:text-black">{link.autor}</small>
                   </div>
                 </a>
