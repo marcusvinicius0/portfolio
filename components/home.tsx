@@ -37,7 +37,7 @@ export default function Home() {
       role: "Desenvolvedor Frontend",
       about: {
         intro:
-          "Olá, meu nome é Marcus Vinícius, já participei de vários projetos como desenvolvedor fullstack, com uma abrangência maior de conhecimento no lado cliente. Já trabalhei em projetos de nichos variados como restaurantes, indicação de leads, rede social, blogs, metaverso..",
+          "Olá, meu nome é Marcus Vinicius, já estive em diversos projetos como desenvolvedor fullstack como rede social, blog, sistemas de restaurante, indicação de leads e vagas. Através destes projetos consegui trazer soluções eficazes para diversos clientes utilizando as tecnologias mais poderosas da atualidade.",
         main: "💡 No meu tempo livre gosto de estar me atualizando com o mercado, estudando coisas novas, trabalhando em projetos pessoais, tendo novas ideias...",
         final: "Quer saber mais sobre minha experiência profissional?",
       },
