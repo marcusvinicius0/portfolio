@@ -13,6 +13,7 @@ interface AboutProps {
   main: string;
   final?: string;
 }
+ 
 interface HeroProps {
   img: JSX.Element;
   name: string;
